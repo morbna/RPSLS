@@ -1,0 +1,313 @@
+# REST Client file for VS CODE
+
+### USER ###
+
+# deleteAllUsers
+DELETE http://localhost:8083/acs/admin/users/2020b.morb2/admin1@gmail.com" HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# getAllUsers
+GET http://localhost:8083/acs/admin/users/2020b.morb2/admin1@gmail.com HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# createUser
+POST http://localhost:8083/acs/users HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "morb2@mail.afeka.ac.il",
+    "role": "MANAGER",
+    "username": "morbna",
+    "avatar": "|:>"
+}
+###
+POST http://localhost:8083/acs/users HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "morb6@mail.afeka.ac.il",
+    "role": "PLAYER",
+    "username": "morbna",
+    "avatar": "|:>"
+}
+
+###
+
+# login
+GET http://localhost:8083/acs/users/login/2020b.morb2/morb2@mail.afeka.ac.il HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": {
+    "domain": "2020b.morb2",
+    "email": "morb2@mail.afeka.ac.il"
+  },
+  "role": "MANAGER",
+  "username": "morbna",
+  "avatar": "|:>"
+}
+
+###
+
+# updateUser
+PUT http://localhost:8083/acs/users/2020b.morb2/morb2@mail.afeka.ac.il HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": {
+    "domain": "IGNORE",
+    "email": "IGNORE"
+  },
+  "role": "ADMIN",
+  "username": "morbna",
+  "avatar": "|:>"
+}
+
+###
+
+PUT http://localhost:8083/acs/users/2020b.morb2/morb2@mail.afeka.ac.il HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "role": "PLAYER",
+  "username": "morbna",
+  "avatar": "|:>"
+}
+
+###
+
+### ELEMENT ###
+
+# deleteAllElements
+DELETE http://localhost:8083/acs/admin/elements/dev/dev" HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# getAllElements
+GET http://localhost:8083/acs/elements/2020b.morb2/morb2@mail.afeka.ac.il HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+
+# createElement
+POST http://localhost:8083/acs/elements/2020b.morb2/morb2@mail.afeka.ac.il HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type": "TOURNAMENT",
+  "name": "Tournament",
+  "active": true,
+  "location": {
+    "lat": 1,
+    "lng": 2
+  },
+  "elementAttributes": {
+    "numOfPlayers": 2,
+    "players": [],
+    "tournamentStatus" : "PRE",
+    "winner": ""
+  }
+}
+
+###
+
+# getAllByLocation
+GET http://localhost:8083/acs/elements/2020b.morb2/morb2@mail.afeka.ac.il/search/near/1/1/1 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# getSpecificElement
+GET http://localhost:8083/acs/elements/2020b.morb2/_/2020b.morb2/_ HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# updateElement
+PUT http://localhost:8083/acs/elements/2020b.morb2/morb2@mail.afeka.ac.il/2020b.morb2/_ HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type": "PLAYER",
+  "name": "dev1",
+  "active": true,
+  "location": {
+    "lat": 1,
+    "lng": 2
+  },
+  "elementAttributes": {
+    "k": "v"
+  }
+}
+
+###
+
+# bind
+PUT http://localhost:8083/acs/elements/2020b.morb2/morb2@mail.afeka.ac.il/2020b.morb2/GAME_LOGIC/children HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "domain": "2020b.morb2",
+  "id": "c6ce188c-2b7a-4fab-bbb7-c2c85c80c413"
+}
+
+###
+
+# getChildren
+
+GET http://localhost:8083/acs/elements/2020b.morb2/dev1@gmail.com/2020b.morb2/a75fc15f-5e7b-4e97-bec0-38a5932b585a/children HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# getParents
+
+GET http://localhost:8083/acs/elements/dev/dev/2020b.morb2/GAME_LOGIC/parents HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+### ACTION ###
+
+# getAllActions
+GET http://localhost:8083/acs/admin/actions/dev/dev HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# deleteAllActions
+DELETE http://localhost:8083/acs/admin/actions/dev/dev HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+
+
+# createElement TOURNAMENT
+POST http://localhost:8083/acs/elements/2020b.morb2/morb2@mail.afeka.ac.il HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type": "TOURNAMENT",
+  "name": "Tournament",
+  "active": true,
+  "location": {
+    "lat": 1,
+    "lng": 2
+  },
+  "elementAttributes": {
+    "numOfPlayers": 4,
+    "players": [],
+    "tournamentStatus" : "PRE",
+    "winner": ""
+  }
+}
+
+###
+
+# getElementByType TOURNAMENT
+
+GET http://localhost:8083/acs/elements/2020b.morb2/morb2@mail.afeka.ac.il/search/byType/TOURNAMENT HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+  
+{
+
+}
+
+###
+
+# invokeAction TOURNAMENT_ENTER
+POST http://localhost:8083/acs/actions HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+  {
+    "type": "TOURNAMENT_ENTER",
+    "element": {
+      "elementId": {
+        "domain": "2020b.morb2",
+        "id": "GAME_LOGIC"
+      }
+    },
+    "invokedBy": {
+      "userId": {
+        "domain": "2020b.morb2",
+        "email": "morb2@mail.afeka.ac.il"
+      }
+    },
+    "actionAttributes": {
+      "myId": "d8e68536-fdf8-4ffc-8253-b6d38fd77950", 
+      "tournamentId": "681432fb-b058-4866-94ac-814fa7082e48"
+    }
+  }
+
+###
+
+# invokeAction
+POST http://localhost:8083/acs/actions HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+  {
+    "type": "TOURNAMENT_REPLY",
+    "element": {
+      "elementId": {
+        "domain": "2020b.morb2",
+        "id": "5586e764-7359-49cf-8d5b-edb60a121267"
+      }
+    },
+    "invokedBy": {
+      "userId": {
+        "domain": "2020b.morb2",
+        "email": "morb22@mail.afeka.ac.il"
+      }
+    },
+    "actionAttributes": {
+      "myId": "5586e764-7359-49cf-8d5b-edb60a121267", 
+      "tournamentId": "6eaac5bb-2d19-4f53-abff-2ad3d9f21af0"
+    }
+  }
+
+###
